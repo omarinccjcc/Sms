@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<sec:http entry-point-ref="authenticaionEntryPoint" auto-config="true">
+		
+		<sec:form-login login-page="/login" login-processing-url="/j_spring_security_check"
+			default-target-url="/home/person"
+			authentication-failure-url="/login?login_error=1"
+            always-use-default-target="false"
+		/>
+<!--		<sec:custom-filter ref="logoutFilter" before="LOGOUT_FILTER"/>-->
+        <sec:logout logout-url="/logout" logout-success-url="/" invalidate-session="true"/>
+        
+		<sec:intercept-url pattern="/images*" access="IS_AUTHENTICATED_ANONYMOUSLY,IS_AUTHENTICATED_REMEMBERED"/>
+		<sec:intercept-url pattern="/css*" access="IS_AUTHENTICATED_ANONYMOUSLY,IS_AUTHENTICATED_REMEMBERED"/>
+		<sec:intercept-url pattern="/js*" access="IS_AUTHENTICATED_ANONYMOUSLY,IS_AUTHENTICATED_REMEMBERED"/>
+		<sec:intercept-url pattern="/home/**" access="IS_AUTHENTICATED_REMEMBERED"/>
+		<sec:intercept-url pattern="/admin/**" access="IS_AUTHENTICATED_REMEMBERED"/>
+		
+<!--		<sec:intercept-url pattern="/tournament/**" access="IS_AUTHENTICATED_REMEMBERED"/>-->
+		<sec:intercept-url pattern="/j_spring_security_check" access="IS_AUTHENTICATED_ANONYMOUSLY,IS_AUTHENTICATED_REMEMBERED"/>
+		<sec:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<sec:intercept-url pattern="/error" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		
+<!--		<sec:session-management invalid-session-url="/login?login_error=2">-->
+<!--			<sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" expired-url="/login?login_error=3"/>-->
+<!--	    </sec:session-management>-->
+    </sec:http>
+    
+    <sec:authentication-manager alias="authenticationManager">
+<!--        <sec:authentication-provider ref="facebookAuthenticationProvider" />-->
+        <sec:authentication-provider ref="authenticationProvider" />
+    </sec:authentication-manager>
+    
+
+    <!--	Login Authentication Provider	-->
+
+    <bean id="authenticationProvider" class="pe.edu.upeu.smswebapp.security.DAOAuthenticationProvider">
+	<!--        <property name="userService" ref="userService"/> -->
+    </bean>
+
+	<bean id="authenticaionEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/login" />
+	</bean>
+	
+	
+</beans>
