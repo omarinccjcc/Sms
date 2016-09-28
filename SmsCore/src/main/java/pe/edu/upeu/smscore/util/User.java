@@ -15,13 +15,17 @@ public class User implements Serializable {
 	private String lastName;
 	private String fullName;
 	private String email;
+	private String status;
 	private Long userId;
-	
-	private Long institutionId;
+
+	private Long departamentId;
 
 	private String userName;
 
 	private String[] roles;
+
+	private Long campaignId;
+	private String campaingMessage;
 
 	public String getFirstName() {
 		return firstName;
@@ -79,13 +83,36 @@ public class User implements Serializable {
 		this.userName = userName;
 	}
 
-	public Long getInstitutionId() {
-		return institutionId;
+	public Long getDepartamentId() {
+		return departamentId;
 	}
 
-	public void setInstitutionId(Long institutionId) {
-		this.institutionId = institutionId;
+	public void setDepartamentId(Long departamentId) {
+		this.departamentId = departamentId;
 	}
 
+	public Long getCampaignId() {
+		return campaignId;
+	}
+
+	public void setCampaignId(Long campaignId) {
+		this.campaignId = campaignId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getCampaingMessage() {
+		return campaingMessage;
+	}
+
+	public void setCampaingMessage(String campaingMessage) {
+		this.campaingMessage = campaingMessage;
+	}
 
 }

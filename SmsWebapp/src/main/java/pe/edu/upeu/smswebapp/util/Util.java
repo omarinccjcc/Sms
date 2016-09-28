@@ -15,7 +15,7 @@ import pe.edu.upeu.smscore.util.CommonUtils;
 
 public class Util {
 
-	public String storageImages(HttpServletRequest request, CommonsMultipartFile file) throws IOException {
+	public String storage(HttpServletRequest request, CommonsMultipartFile file) throws IOException {
 		String fileName = null;
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
@@ -25,7 +25,6 @@ public class Util {
 
 		if (file.getSize() > 0) {
 			inputStream = file.getInputStream();
-			System.out.println("size::" + file.getSize());
 			fileName = request.getRealPath("") + path + file.getOriginalFilename();
 			String extension = FilenameUtils.getExtension(fileName);
 			if(extension.equals("xlsx") || extension.equals("xls")){

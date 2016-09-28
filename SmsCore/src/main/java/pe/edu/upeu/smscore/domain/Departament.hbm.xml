@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/06/2012 10:38:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="pe.edu.upeu.smscore.domain.Departament" table="departament">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+
+		<property name="areaName" type="string">
+			<column name="areaName" length="100" />
+		</property>
+		<property name="description" type="string">
+			<column name="description" length="200" />
+		</property>
+		<property name="statusDepartament" type="string">
+			<column name="statusDepartament" length="20" />
+		</property>
+		<property name="dateCreated" type="timestamp">
+			<column name="dateCreated" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="createdBy" length="20" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

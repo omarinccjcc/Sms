@@ -14,7 +14,7 @@
 	<sec:http entry-point-ref="authenticaionEntryPoint" auto-config="true">
 		
 		<sec:form-login login-page="/login" login-processing-url="/j_spring_security_check"
-			default-target-url="/home/person"
+			default-target-url="/home/welcome"
 			authentication-failure-url="/login?login_error=1"
             always-use-default-target="false"
 		/>

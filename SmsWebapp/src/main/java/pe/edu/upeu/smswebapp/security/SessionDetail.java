@@ -14,9 +14,6 @@ import pe.edu.upeu.smscore.util.User;
 
 public class SessionDetail {
 
-	protected SessionDetail() {
-	}
-
 	public static User getUserDetails() {
 		User userBean = null;
 		SecurityContext securityCtx = SecurityContextHolder.getContext();

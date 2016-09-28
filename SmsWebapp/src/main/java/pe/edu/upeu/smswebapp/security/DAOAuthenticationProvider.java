@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,6 +15,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import pe.edu.upeu.smscore.service.services.SecurityServiceImpl;
+import pe.edu.upeu.smscore.util.CommonUtils;
 import pe.edu.upeu.smscore.util.User;
 
 /**
@@ -26,15 +29,15 @@ public class DAOAuthenticationProvider implements AuthenticationProvider {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
-	// @Autowired
-	// private UserService userService;
+	@Autowired
+	private SecurityServiceImpl securityService;
 
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
 		UsernamePasswordAuthenticationToken successToken = null;
 
 		if (SessionDetail.getUserDetails() == null) {
-			System.out.println(":: DAO authenticate ::");
+			logger.info(":: authenticate ::");
 			String username = null;
 			String password = null;
 
@@ -49,30 +52,18 @@ public class DAOAuthenticationProvider implements AuthenticationProvider {
 			if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
 				throw new BadCredentialsException("Username or Password is empty: " + username);
 			}
-			System.out.println("username: " + username);
+			password = CommonUtils.encrypt(password);
 
-			// System.out.println("userServicescs: " + userService);
-
-			// User user =
-			// userService.findUserSystemByUserNamePassName(username, password);
-			User user = null;
-			if (username.equals("admin") && password.equals("admin")) {
-				user = new User();
-				String[] roles = { "ROLE_CLIENT" };
-				user.setRoles(roles);
-				user.setUserName("administrador del sistema");
-				user.setUserId(2L);
-			}
-			//
-			// if (username.equals("client02") && password.equals("client02")) {
+			User user = securityService.findValidadUser(username, password);
+			// User user = null;
+			// if (username.equals("admin") && password.equals("admin")) {
 			// user = new User();
-			// String[] roles = { "ROLE_CLIENT" };
+			// String[] roles = { "ROLE_ADMIN" };
 			// user.setRoles(roles);
-			// user.setUserName("Cliente-02");
-			// user.setUserId(3L);
+			// user.setUserName("administrador del sistema");
+			// user.setUserId(2L);
 			// }
 
-			System.out.println("user: " + user);
 			if (user == null) {
 				throw new BadCredentialsException("DAO: User's Information need to be updated, user " + username);
 			}
@@ -82,7 +73,8 @@ public class DAOAuthenticationProvider implements AuthenticationProvider {
 				System.out.println("rol " + rol);
 				authorities.add(new SimpleGrantedAuthority(rol));
 			}
-			System.out.println("authorities: " + authorities);
+			logger.info(":: authorities ::" + authorities);
+
 			// successToken = new
 			// UsernamePasswordAuthenticationToken(authentication.getPrincipal().toString(),
 			// authorities);

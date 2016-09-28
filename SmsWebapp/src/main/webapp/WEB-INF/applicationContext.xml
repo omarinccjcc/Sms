@@ -14,6 +14,7 @@
 
 	<!-- Scans the classpath of this application for @Components to deploy as 
 		beans -->
+	<context:component-scan base-package="pe.edu.upeu.smswebapp.security" />
 	<context:component-scan base-package="pe.edu.upeu.smswebapp.controller" />
 
 	<!-- Configures the annotation-driven Spring MVC Controller programming 

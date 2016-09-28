@@ -1,44 +1,12 @@
 <%@ page session = "true"%>
 <%@ include file = "/WEB-INF/jsp/include/taglibs.jsp"%>
 
-	<link href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	<link href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="<%=request.getContextPath()%>/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
-	
-    <script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.js"></script> 
-    <script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/jquery.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-dropdown.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-tab.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-carousel.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-modal.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-tooltip.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-popover.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-collapse.js"></script>
-	
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-alert.js"></script>
-	<script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-button.js"></script>
+<link href="<%=request.getContextPath()%>/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="<%=request.getContextPath()%>/assets/libs/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="<%=request.getContextPath()%>/assets/css/layout.css" rel="stylesheet"/>
+<link href="<%=request.getContextPath()%>/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet"/>
 
-    <script src="<%=request.getContextPath()%>/bootstrap/js/bootstrap-affix.js"></script>
-    <script src="<%=request.getContextPath()%>/bootstrap/js/application.js"></script>
-
-	<style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 0px;
-      }
-      #push {
-        height: 10px;
-      }
-      #footer {
-        height: 60px;
-        background-color: #f5f5f5;
-      }
-    </style>
-<!--	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>-->
-<!-- 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script> -->
-	<script src="<%=request.getContextPath()%>/js/jquery.autocomplete.js"></script>
-	<script src="<%=request.getContextPath()%>/js/google-jquery-ui.min.js"></script>
-	<link href="<%=request.getContextPath()%>/css/google-jquery-ui.css" rel="stylesheet" type="text/css"/>
-	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css"/>
-<!-- 	<script src="http://connect.facebook.net/en_US/all.js"></script> -->
+<script src="<%=request.getContextPath()%>/assets/libs/jquery/jquery-2.1.4.min.js"></script> 
+<script src="<%=request.getContextPath()%>/assets/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/libs/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>

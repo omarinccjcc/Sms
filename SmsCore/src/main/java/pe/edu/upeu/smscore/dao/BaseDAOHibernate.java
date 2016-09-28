@@ -46,7 +46,7 @@ public class BaseDAOHibernate extends HibernateDaoSupport {
 		// entity.setDateLastUpdated(systemDate);
 		// if (entity.getId() == null || entity.getDateCreated() == null) {
 		if (entity.getId() == null) {
-			// entity.setDateCreated(systemDate);
+			entity.setDateCreated(systemDate);
 			getHibernateTemplate().save(entity);
 		} else {
 			try {
@@ -237,8 +237,32 @@ public class BaseDAOHibernate extends HibernateDaoSupport {
 
 	public int deleteAll(String stringQuery) {
 		// String stringQuery = "DELETE FROM tablename";
-		Query query = this.getDaoSession().createQuery(stringQuery);
-		return query.executeUpdate();
+		Session session = getDaoSession();
+		Query query = session.createQuery(stringQuery);
+		int rowsDelete = query.executeUpdate();
+//		session.flush();
+		return rowsDelete;
 	}
+
+	@SuppressWarnings("unchecked")
+	public void executeSQL(String queryString) {
+		Session session = getDaoSession();
+		Query query = session.createSQLQuery(queryString);
+		query.executeUpdate();
+		flushing(session);
+//		return (T) query.uniqueResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> findDataLimit(String queryString, Class<T> entityClass,int limit) {
+		Session session = getDaoSession();
+		Query query = session.createSQLQuery(queryString).addEntity(entityClass);
+		query.setFirstResult(0);
+		if(limit!=0){
+			query.setMaxResults(limit);
+		}
+		flushing(session);
+		return (List<T>) query.list();
+	}	
 
 }

@@ -1,6 +1,7 @@
 <decorators defaultdir="/decorator"> 
     <decorator name="general" page="general.jsp"> 
         <pattern>/home/*</pattern>
+        <pattern>/admin/*</pattern>
 
     </decorator>
 

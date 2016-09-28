@@ -14,11 +14,11 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" />
-			<tx:method name="find*" propagation="REQUIRED" isolation="DEFAULT" />
-			<tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT" />
-			<tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT" />
-			<tx:method name="process*" propagation="REQUIRED" isolation="DEFAULT" />
-			<tx:method name="get*" propagation="REQUIRED" isolation="DEFAULT" />
+			<tx:method name="find*" propagation="REQUIRED" isolation="DEFAULT" read-only="true"/>
+			<tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT" read-only="false"/>
+			<tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT" read-only="false"/>
+			<tx:method name="process*" propagation="REQUIRED" read-only="false"/>
+			<tx:method name="get*" propagation="REQUIRED" isolation="DEFAULT" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
 
@@ -28,7 +28,7 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod" />
 	</aop:config>
 
-<!-- 	<bean id="userService" class="pe.com.peruInka.service.services.UserServiceImpl"> -->
-<!-- 	</bean> -->
+	<bean id="securityService" class="pe.edu.upeu.smscore.service.services.SecurityServiceImpl">
+	</bean>
 
 </beans>

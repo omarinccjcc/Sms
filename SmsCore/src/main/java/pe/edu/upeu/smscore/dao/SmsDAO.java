@@ -2,20 +2,70 @@ package pe.edu.upeu.smscore.dao;
 
 import java.util.List;
 
-import pe.edu.upeu.smscore.domain.Person;
+import pe.edu.upeu.smscore.domain.AccessApp;
+import pe.edu.upeu.smscore.domain.Campaign;
+import pe.edu.upeu.smscore.domain.Departament;
+import pe.edu.upeu.smscore.domain.Sms;
+import pe.edu.upeu.smscore.domain.Role;
+import pe.edu.upeu.smscore.domain.UserSystem;
+import pe.edu.upeu.smscore.domain.UserSystemRole;
 
 public interface SmsDAO {
 
-	void savePerson(Person person);
+	void saveSms(Sms sms);
 
-	List<Person> findPersonAll();
+	List<Sms> findSmsAll(Long campaignId, Long departamentId, String status,int limit);
 
-	Person findPersonById(Long id);
+	Sms findSmsById(Long id);
 
-	void deletePerson(Person person);
+	void deleteSms(Sms sms);
 
-	int deleteAllPerson();
+	int deleteSmsByCampaignId(Long campaignId,String status);
 
-	void saveObjectAllPerson(List<Person> list);
+	void saveObjectAllSms(List<Sms> list);
+
+	void saveAccessApp(AccessApp accessApp);
+
+	void deleteAccessApp(AccessApp accessApp);
+
+	AccessApp findAccessAppById(Long id);
+
+	List<AccessApp> findAccessAppAll();
+
+	AccessApp findAccessAppByIMEI(String imei);
+
+	List<UserSystem> findUserSystem();
+
+	UserSystem findUserSystemById(Long id);
+
+	void saveUserSystem(UserSystem userSystem);
+
+	void deleteUserSystem(UserSystem userSystem);
+
+	void deleteUserSystemRole(Long id);
+
+	void saveUserSystemRole(UserSystemRole userSystemRole);
+
+	List<Role> findRoleByUserId(Long userId);
+
+	List<UserSystemRole> findUserSystemRoleByUserId(Long userId);
+
+	Role findRoleById(Long id);
+
+	void saveDepartament(Departament departament);
+
+	void deleteDepartament(Departament departament);
+
+	Departament findDepartamentById(Long id);
+
+	List<Departament> findDepartamentByStatus(String status);
+
+	void saveCampaign(Campaign campaign);
+
+	void deleteCampaign(Campaign campaign);
+
+	Campaign findCampaignById(Long id);
+
+	List<Campaign> findCampaignByDepartamentId(Long departamentId);
 
 }

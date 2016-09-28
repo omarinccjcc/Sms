@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/06/2012 10:38:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="pe.edu.upeu.smscore.domain.UserSystem" table="UserSystem">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+
+		<property name="login" type="string">
+			<column name="login" length="60" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" length="120" />
+		</property>
+		<property name="dateIni" type="timestamp">
+			<column name="dateIni" />
+		</property>
+		<property name="dateEnd" type="timestamp">
+			<column name="dateEnd" />
+		</property>
+		<property name="firstName" type="string">
+			<column name="firstName" length="30" />
+		</property>
+		<property name="lastNameF" type="string">
+			<column name="lastNameF" length="30" />
+		</property>
+		<property name="lastNameM" type="string">
+			<column name="lastNameM" length="30" />
+		</property>
+		<property name="statusUser" type="string">
+			<column name="statusUser" length="20" />
+		</property>
+
+		<property name="dateCreated" type="timestamp">
+			<column name="dateCreated" />
+		</property>
+
+		<property name="departamentId" type="java.lang.Long">
+			<column name="departamentId" />
+		</property>
+
+
+		<!-- <bag name="userSystemRoleLista" lazy="false" fetch="select" cascade="save-update"> -->
+		<!-- <key> -->
+		<!-- <column name="userId" not-null="true" /> -->
+		<!-- </key> -->
+		<!-- <one-to-many class="pe.edu.upeu.smscore.domain.UserSystemRole" /> -->
+		<!-- </bag> -->
+
+	</class>
+</hibernate-mapping>
