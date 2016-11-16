@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/06/2012 10:38:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="pe.edu.upeu.smscore.domain.Sms" table="sms">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+
+		<property name="nameAll" type="string">
+			<column name="nameAll" length="80" />
+		</property>
+		<property name="numPhone" type="string">
+			<column name="numPhone" length="10" />
+		</property>
+		<property name="textA" type="string">
+			<column name="textA" length="50" />
+		</property>
+		<property name="textB" type="string">
+			<column name="textB" length="50" />
+		</property>
+		<property name="dateA" type="string">
+			<column name="dateA" length="20"/>
+		</property>
+		<property name="dateB" type="string">
+			<column name="dateB" length="20"/>
+		</property>
+		<property name="amountA" type="big_decimal">
+			<column name="amountA" precision="2"/>
+		</property>
+		<property name="amountB" type="big_decimal">
+			<column name="amountB" precision="2" />
+		</property>
+		<property name="message" type="string">
+			<column name="message" length="250" />
+		</property>
+		<property name="dateProccess" type="timestamp">
+			<column name="dateProccess"/>
+		</property>
+		<property name="dateCreated" type="timestamp">
+			<column name="dateCreated"/>
+		</property>
+		
+		<property name="createdBy" type="string">
+			<column name="createdBy" length="20" />
+		</property>
+		<property name="statusSms" type="string">
+			<column name="statusSms" length="20" />
+		</property>
+		
+		<property name="campaignId" type="java.lang.Long">
+			<column name="campaignId" />
+		</property>
+		<property name="departamentId" type="java.lang.Long">
+			<column name="departamentId" />
+		</property>
+
+<!-- 		<many-to-one name="tarea" class="pe.gob.ate.slem.dao.domain.TArea" lazy="false"> -->
+<!-- 			<column name="c_area" /> -->
+<!-- 		</many-to-one> -->
+		
+	</class>
+</hibernate-mapping>
