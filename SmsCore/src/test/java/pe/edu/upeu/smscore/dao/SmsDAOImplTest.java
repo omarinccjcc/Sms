@@ -34,7 +34,7 @@ public class SmsDAOImplTest extends AbstractUnitTest {
 		
 		Assert.assertEquals(d.getAreaName(), "Admision");
 		Assert.assertEquals(d.getDescription(), "UPeU - Admision");
-		
+		System.out.println("::::::::::::testDepartament::::::::::::");
 		
 	}
 //	
