@@ -53,7 +53,7 @@ public class SmsDAOImplTest extends AbstractUnitTest {
 	}
 
 	public void testFindAccessAppByIMEI() {
-		System.out.println(">> " + smsDAO.findAccessAppByIMEI("515151515").getDepartamentId());
+	//	System.out.println(">> " + smsDAO.findAccessAppByIMEI("515151515").getDepartamentId());
 	}
 
 	public void testFindSmsAll() {
@@ -65,7 +65,7 @@ public class SmsDAOImplTest extends AbstractUnitTest {
 	}
 
 	public void testFindRoleByUserId() {
-		System.out.println(">>>>>" + smsDAO.findUserSystemRoleByUserId(1L));
+		//System.out.println(">>>>>" + smsDAO.findUserSystemRoleByUserId(1L));
 	}
 	// findRoleByUserId
 
@@ -81,14 +81,14 @@ public class SmsDAOImplTest extends AbstractUnitTest {
 	public void testFind() {
 		UserSystem userSystem = smsDAO.findUserSystemById(1L);
 //		List<UserSystemRole> listUserSystemRole = userSystem.getUserSystemRoleLista();
-
+/*
 		List<Role> list = smsDAO.findRoleByUserId(1L);
 		for (Role role : list) {
 			System.out.println();
 //			listUserSystemRole.contains(role);
 
 		}
-
+*/
 	}
 
 }

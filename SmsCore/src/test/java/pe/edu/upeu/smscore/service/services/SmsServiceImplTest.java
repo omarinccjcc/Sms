@@ -30,7 +30,7 @@ public class SmsServiceImplTest extends AbstractUnitTest {
 
 		System.out.println(StatusAccessApp.STATUS_ACCESS_ACT.getStatusCode());
 
-		System.out.println(">>>>>>>>>" + serviceImpl.findSmsAll(0L, 0L, null));
+		//System.out.println(">>>>>>>>>" + serviceImpl.findSmsAll(0L, 0L, null));
 	}
 
 	/**
@@ -43,6 +43,7 @@ public class SmsServiceImplTest extends AbstractUnitTest {
 		UserSystem userSystem = serviceImpl.findUserSystemById(10L);
 
 		// UserSystem userSystem = new UserSysCtem();
+		/*
 		userSystem.setLogin("nueva Sms");
 
 		List<UserSystemRole> userSystemRoleLista = new ArrayList<UserSystemRole>();
@@ -58,7 +59,7 @@ public class SmsServiceImplTest extends AbstractUnitTest {
 		serviceImpl.processSaveUserSystem(userSystem, userSystemRoleLista);
 		// setComplete();
 		// userSystem.setUserSystemRoleLista(userSystemRoleLista);
-
+		*/
 	}
 
 	public void testEncrypted() {
@@ -73,7 +74,7 @@ public class SmsServiceImplTest extends AbstractUnitTest {
 		System.out.println("messageTemplete::: " + messageTemplete);
 
 		// SmsFields
-
+	/*
 		List<Sms> list = serviceImpl.findSmsAll(7L, 3L, StatusSms.STATUS_SMS_ESPERA.getStatusCode());
 		for (Sms sms : list) {
 			String message = messageTemplete;
@@ -85,6 +86,7 @@ public class SmsServiceImplTest extends AbstractUnitTest {
 			}
 			System.out.println(message);
 		}
+	*/
 
 	}
 
