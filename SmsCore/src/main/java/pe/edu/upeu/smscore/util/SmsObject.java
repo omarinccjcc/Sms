@@ -15,8 +15,10 @@ public class SmsObject implements Serializable {
 		this.id = id;
 	}
 
+	/***
+	This is construct
+	*/
 	public SmsObject() {
-
 	}
 
 	public String getNumPhone() {
