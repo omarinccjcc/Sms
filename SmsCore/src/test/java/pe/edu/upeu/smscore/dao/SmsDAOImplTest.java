@@ -44,7 +44,7 @@ public class SmsDAOImplTest extends AbstractUnitTest {
 		
 		Assert.assertNotNull(list);
 		Assert.assertEquals(2, list.size());
-		
+		System.out.println(":::::::::::testFindCampaignByDepartamentId::::::::::::::");
 	}
 	
 //
