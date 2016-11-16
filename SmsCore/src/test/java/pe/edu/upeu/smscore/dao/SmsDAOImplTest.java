@@ -37,11 +37,16 @@ public class SmsDAOImplTest extends AbstractUnitTest {
 		System.out.println("::::::::::::testDepartament::::::::::::");
 		
 	}
-//	
-//	public void testFindCampaignByDepartamentId(){
-//		System.out.println(smsDAO.findCampaignByDepartamentId(1l));
-//
-//	}
+
+	public void testFindCampaignByDepartamentId(){
+		
+		List<Campaign> list= smsDAO.findCampaignByDepartamentId(3l);
+		
+		Assert.assertNotNull(list);
+		Assert.assertEquals(2, list.size());
+		
+	}
+	
 //
 //	public void testSaveSms() {
 //		Sms sms = new Sms();
