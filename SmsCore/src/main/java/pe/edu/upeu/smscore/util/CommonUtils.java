@@ -61,13 +61,11 @@ public class CommonUtils {
 	}
 
 	public static String dateToString(java.util.Date date, String pattern) {
-		String result = null;
 		if (date == null) {
 			return null;
 		}
 		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
-		result = formatter.format(date);
-		return result;
+		return formatter.format(date);
 	}
 
 	public static Date datePattern(java.util.Date date, String pattern) {
