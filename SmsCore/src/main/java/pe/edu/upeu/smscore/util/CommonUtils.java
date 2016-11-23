@@ -65,6 +65,7 @@ public class CommonUtils {
 			return null;
 		}
 		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+		
 		return formatter.format(date);
 	}
 
@@ -77,13 +78,11 @@ public class CommonUtils {
 	}
 
 	public static String dateToString(java.util.Date date, String pattern, Locale locale) {
-		String result = null;
 		if (date == null) {
 			return null;
 		}
 		SimpleDateFormat formatter = new SimpleDateFormat(pattern, locale);
-		result = formatter.format(date);
-		return result;
+		return formatter.format(date);
 	}
 
 	public static String generateFileName(String id, String fileType) {
